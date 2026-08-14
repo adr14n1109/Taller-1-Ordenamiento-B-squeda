@@ -14,7 +14,7 @@ public class MisAlgoritmos implements Busquedas,Ordenamientos {
 
     @Override
     public int binarySearch(int[] arrayPorExplorar, int elementoABuscar) {
-        int tamanoLista = arrayPorExplorar.length;
+        int valorMitad = arrayPorExplorar.length/2;
         for (int i = 0; i < ; i++) {
             
         }
