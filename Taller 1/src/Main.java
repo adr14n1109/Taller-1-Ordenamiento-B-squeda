@@ -15,12 +15,27 @@ public class    Main {
         //int posicion = misAlgoritmos.binarySearch(miArray,12);
         //System.out.println(posicion);
 
-        int[] miArray = {70, 12, 19, 45, 11, 33, 26};
-        int[] resultado = misAlgoritmos.bubbleSort(miArray);
-        System.out.println("Array ordenado: ");
-        for(int num : resultado)
-            System.out.println(num + " ");
+        //int[] miArray = {70, 12, 19, 45, 11, 33, 26};
+        //int[] resultado = misAlgoritmos.bubbleSort(miArray);
+        //System.out.println("Array ordenado: ");
+        //for(int num : resultado)
+            //System.out.println(num + " ");
 
+        //int[] miArray = {70, 12, 19, 45, 11, 33, 26};
+        //int[] resultado = misAlgoritmos.selectionSort(miArray);
+        //System.out.println("Array ordenado: ");
+        //for (int num : resultado){
+        //    System.out.println(num + " ");
+        //}
+
+        //int[] miArray = {70, 12, 19, 45, 11, 33, 26};
+        //int[] resultado = misAlgoritmos.insertionSort(miArray);
+        //System.out.println("Array ordenado: ");
+        //for (int num : resultado) {
+        //    System.out.println(num + " ");
+        //}
+
+        
     }
 }
 
