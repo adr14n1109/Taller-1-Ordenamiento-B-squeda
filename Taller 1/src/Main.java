@@ -35,7 +35,19 @@ public class    Main {
         //    System.out.println(num + " ");
         //}
 
-        
+        //int[] miArray = {70, 12, 19, 45, 11, 33, 26};
+        //int[] resultado = misAlgoritmos.mergeSort(miArray);
+        //System.out.println("Array ordenado: ");
+        //for (int num : resultado) {
+        //   System.out.println(num + " ");
+        //}
+
+        int[] miArray = {70, 12, 19, 45, 11, 33, 26};
+        int[] resultado = misAlgoritmos.quickSort(miArray);
+        System.out.print("Array ordenado: ");
+        for (int num : resultado) {
+            System.out.print(num + " ");
+        }
     }
 }
 

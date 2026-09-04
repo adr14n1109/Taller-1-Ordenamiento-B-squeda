@@ -37,7 +37,7 @@ public class MisAlgoritmos implements Busquedas, Ordenamientos {
         int n = arrayDesordenado.length;
         int[] arrayOrdenado = arrayDesordenado.clone();
 
-        for(int i = 0; i < n -1; i++) {
+        for (int i = 0; i < n - 1; i++) {
             boolean huboIntercambio = false;
 
             for (int j = 0; j < n - 1 - i; j++) {
@@ -48,7 +48,7 @@ public class MisAlgoritmos implements Busquedas, Ordenamientos {
                     huboIntercambio = true;
                 }
             }
-            if (!huboIntercambio){
+            if (!huboIntercambio) {
                 break;
             }
         }
@@ -99,11 +99,100 @@ public class MisAlgoritmos implements Busquedas, Ordenamientos {
 
     @Override
     public int[] mergeSort(int[] arrayDesordenado) {
-        return new int[0];
+        int[] arrayOrdenado = arrayDesordenado.clone();
+
+        if (arrayOrdenado.length > 1) {
+            dividir(arrayOrdenado, 0, arrayOrdenado.length - 1);
+        }
+        return arrayOrdenado;
+    }
+
+    private void dividir(int[] array, int inicio, int fin) {
+        if (inicio < fin) {
+            int medio = (inicio + fin) / 2;
+
+            dividir(array, inicio, medio);
+            dividir(array, medio + 1, fin);
+
+            mezclar(array, inicio, medio, fin);
+        }
+    }
+
+    private void mezclar(int[] array, int inicio, int medio, int fin) {
+        int n1 = medio - inicio + 1;
+        int n2 = fin - medio;
+
+        int[] izquierda = new int[n1];
+        int[] derecha = new int[n2];
+
+        System.arraycopy(array, inicio, izquierda, 0, n1);
+        System.arraycopy(array, medio + 1, derecha, 0, n2);
+
+        int i = 0, j = 0, k = inicio;
+
+        while (i < n1 && j < n2) {
+            if (izquierda[i] <= derecha[j]) {
+                array[k] = izquierda[i];
+                i++;
+            } else {
+                array[k] = derecha[j];
+                j++;
+            }
+            k++;
+        }
+        while (i < n1) {
+            array[k] = izquierda[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            array[k] = derecha[j];
+            j++;
+            k++;
+        }
     }
 
     @Override
     public int[] quickSort(int[] arrayDesordenado) {
-        return new int[0];
+        int[] arrayOrdenado = arrayDesordenado.clone();
+
+        if (arrayOrdenado.length > 1) {
+            ordenar(arrayOrdenado, 0, arrayOrdenado.length - 1);
+        }
+
+        return arrayOrdenado;
+    }
+
+    private void ordenar(int[] array, int inicio, int fin) {
+        if (inicio < fin) {
+
+            int posicionPivote = particionar(array, inicio, fin);
+
+            ordenar(array, inicio, posicionPivote - 1);
+            ordenar(array, posicionPivote + 1, fin);
+        }
+    }
+
+    private int particionar(int[] array, int inicio, int fin) {
+        int pivote = array[fin];
+        int i = inicio - 1;
+
+        for (int j = inicio; j < fin; j++) {
+            if (array[j] <= pivote) {
+                i++;
+                intercambiar(array, i, j);
+            }
+        }
+
+        intercambiar(array, i + 1, fin);
+
+        return i + 1;
+    }
+
+    private void intercambiar(int[] array, int a, int b) {
+        int temp = array[a];
+        array[a] = array[b];
+        array[b] = temp;
     }
 }
